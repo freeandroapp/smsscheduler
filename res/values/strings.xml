@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="update_action">Home Update Action</string>
+    <string name="recents_blank_text_heading">No Recent Contacts</string>
+    <string name="recents_blank_text_content">Recent contacts get added automatically when you schedule an SMS.</string>
+    <string name="private_groups_blank_text_heading">No Groups</string>
+    <string name="private_groups_blank_text_content">These groups of contacts will remain private to this application.</string>
+    <string name="add_number_message">To enter a number, which is not in contacts, type the number and then press SPACE key.</string>
+    <string name="dont_show_message_again">Don\'t show this message again.</string>
+    <string name="new_feature_message">        		* Performance enhancement.\n
+        		\n* Minor changes.        <!--
+                \n
+                
+                \nLess time for loading contacts
+        -->
+    </string>
+    <string name="message_scheduled">Message Scheduled</string>
+    <string name="message_deleted">Message Deleted</string>
+    <string name="blank_template_error">Cannot add Blank Template</string>
+    <string name="sms_scheduler">SMS Scheduler</string>
+    <string name="date_in_past">Date is in Past, message will be sent immediately</string>
+    <string name="template_added">Template Added</string>
+    <string name="no_templates_add_some">No templates, please add some</string>
+    <string name="template_already_exist">Template already Exists</string>
+    <string name="template_could_not_be_added">Template could not be added</string>
+    <string name="empty_message_cannot_add_template">Empty message, can\'t add it as template</string>
+
+</resources>

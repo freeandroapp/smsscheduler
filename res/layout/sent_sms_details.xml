@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/white"
+    android:minHeight="400dip"
+    >
+    
+    <!-- header showing date and time of delivered message -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/header_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="2dp" 
+        >
+        
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/tab_icon_recents" 
+            >
+        </ImageView>
+
+        <TextView
+            android:id="@+id/sent_details_dialog_time_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:textSize="16sp" 
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            >
+       	</TextView>
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/sent_details_dialog_message_space"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp" 
+        android:textColor="@color/black"
+        android:maxHeight="180dip"
+        android:padding="10dip"
+        android:paddingRight="10dip"
+        android:layout_marginBottom="5dip" 
+        android:scrollbars="vertical"
+        android:fadingEdge="none"
+        android:background="@drawable/dialog_bg"
+        android:gravity="center_vertical"
+        >
+    </TextView>
+    
+    <ListView
+        android:id="@+id/sent_details_dialog_number_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:divider="@drawable/list_divider"
+        android:cacheColorHint="@color/transparent" 
+        android:minHeight="180dip"
+        >
+    </ListView>
+</LinearLayout>

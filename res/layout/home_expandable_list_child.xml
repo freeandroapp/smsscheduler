@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_width="fill_parent"
+  	android:layout_height="80dp"
+ 	>
+    <!-- recipients -->
+    <TextView 
+   		android:id = "@+id/main_row_recepient_area"
+   		android:layout_height = "wrap_content"
+   		android:layout_width = "wrap_content"
+   		android:textColor="@color/black"
+   		android:textStyle="italic"
+   		android:layout_alignParentLeft="true"
+   		android:layout_below="@+id/main_row_message_area"
+   		android:layout_marginTop="5dip"
+   		android:ellipsize="end"
+   		android:maxLines="1"
+   		android:paddingLeft="10dip"
+ 		android:layout_marginRight="2dip"
+   		>
+  	</TextView>
+  	   
+    <TextView 
+        android:id="@+id/main_row_extra_recepient_area"
+        android:layout_height="wrap_content"
+        android:layout_width = "wrap_content"
+        android:layout_toRightOf="@id/main_row_recepient_area"
+        android:layout_alignBaseline="@id/main_row_recepient_area"
+        android:paddingRight="10dip"
+        android:textColor="@color/listing_text"
+        android:textStyle="bold"
+        >
+   	</TextView>
+   	
+    <!-- Date and Time -->    
+   	<TextView 
+  		android:id = "@+id/main_row_date_area"
+  		android:layout_height = "wrap_content"
+  		android:layout_width = "205dp"
+  		android:textColor="#000000"
+  		android:textStyle="bold"
+  		android:layout_alignParentLeft="true"
+  		android:layout_alignParentTop="true"
+  		android:paddingTop="5dip"
+  		android:paddingLeft="10dip"
+ 		android:paddingRight="10dip"
+  		>
+ 	</TextView>
+ 	
+   	<!-- repeat icon -->
+   	<ImageView 
+   	    android:id="@+id/repeat_icon"
+   	    android:layout_height="25dp"
+   	    android:layout_width="25dp"
+   	    android:layout_toRightOf="@id/main_row_date_area"
+   	    android:layout_marginTop="2dp"
+   	    android:layout_marginLeft="5dp"
+   	    android:src="@drawable/repeat_icon_big"/>
+    
+   	<!-- message -->    
+   	<TextView 
+  		android:id = "@id/main_row_message_area"
+  		android:layout_width = "fill_parent"
+  		android:layout_height="wrap_content"
+  		android:maxLines="1"
+  		android:textColor="@color/listing_text"
+  		android:textSize="14dip"
+  		android:ellipsize="end"
+  		android:layout_below="@id/main_row_date_area"
+  		android:layout_toLeftOf="@+id/main_row_image_area"
+  		android:paddingTop="5dip"
+  		android:paddingLeft="10dip"
+ 		android:paddingRight="10dip"
+  		>
+	</TextView>
+    
+   	<!-- icon -->  
+   	<com.freeandroapp.smsscheduler.utils.LinearLayoutExtended
+   	    android:id="@+id/container_layout"
+   	    android:layout_height="fill_parent"
+   	    android:layout_width="80dp"
+   	    android:background="#ffffff"
+   	    android:orientation="horizontal"
+   	    android:layout_alignParentRight="true">
+   	    
+   	    <ImageView 
+   	        android:layout_height="70dp"
+   	        android:layout_width="wrap_content"
+   	        android:background="@drawable/list_divider_holo_dark"
+   	        android:layout_gravity="center_vertical"/>
+   	    
+   	    <com.freeandroapp.smsscheduler.utils.ExtendedImageView 
+ 		android:id = "@id/main_row_image_area"
+ 		android:layout_height="80dp"
+ 		android:layout_width ="80dp"
+ 		android:padding="20dp"
+ 		
+ 		android:layout_centerVertical="true"
+ 		
+ 		android:focusable="false"
+ 		android:focusableInTouchMode="false"
+ 		>
+		</com.freeandroapp.smsscheduler.utils.ExtendedImageView>
+   	    
+   	</com.freeandroapp.smsscheduler.utils.LinearLayoutExtended>
+   	      		
+   	
+</RelativeLayout>

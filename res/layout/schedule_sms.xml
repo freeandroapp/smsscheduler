@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height = "fill_parent"
+	android:layout_width = "fill_parent"
+	>
+	<!-- Header -->
+	<TextView
+	    android:id="@+id/header"
+	    android:layout_width = "fill_parent" 
+		android:layout_height = "wrap_content"
+		android:text = "Schedule SMS"
+		android:textSize="22sp"
+		android:textColor="@color/white"
+		android:textStyle="bold"
+		android:background="@drawable/header_bg"
+		android:gravity="center_vertical"
+		android:paddingLeft="10dip"
+		>
+	</TextView>
+	
+	<!-- time in past, warning message -->    
+	<LinearLayout 
+	    android:id = "@+id/past_time_label"
+	    android:layout_height="wrap_content"
+	    android:layout_width = "fill_parent"
+	    android:layout_below="@id/header"
+	    >
+	    <TextView
+        	android:id="@+id/new_date_label"
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:paddingLeft="10dip"
+        	android:paddingBottom="3dip"
+        	android:background="@color/warning_yellow"
+        	android:text="  Time in past, message will be sent now"
+        	android:textColor="@color/black" 
+        	android:drawableLeft="@drawable/warning_sign"
+        	>
+    	</TextView>
+	</LinearLayout>
+    
+	<!-- footer -->    
+	<LinearLayout 
+		android:id="@+id/footer"
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:background="@drawable/footer_bg" 
+		android:orientation="horizontal"
+		android:gravity="center" 
+		android:layout_alignParentBottom="true"
+		>
+		
+		<Button 
+			android:id="@+id/new_schedule_button"
+			android:layout_width="0dip"
+			android:layout_height="wrap_content"
+			android:layout_weight = "1"
+			android:layout_marginLeft="10dp"
+			android:background="@drawable/schedule_footer_states"
+			>
+		</Button>
+		
+		<Button 
+			android:id="@+id/new_cancel_button"
+			android:layout_width="0dip"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:layout_marginLeft="5dp"
+			android:layout_marginRight="10dp"
+			android:background="@drawable/cancel_footer_states"
+			>
+		</Button>
+	</LinearLayout>
+	
+	<!-- body -->
+	<ScrollView 
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:background="@color/white"
+	    android:layout_below="@id/past_time_label"
+	    android:layout_above="@id/footer"
+	    >
+		<LinearLayout 
+		    android:id="@+id/body"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical"
+		    android:paddingLeft="10dip"
+	    	android:paddingRight="10dip"
+	    	>
+		    <!-- contacts linear layout -->
+			<RelativeLayout 
+		    	android:layout_width = "fill_parent"
+		    	android:layout_height = "wrap_content"
+		    	android:layout_marginTop="6dp"
+		    	android:layout_marginBottom="5dp"
+		    	>
+		    	
+			    
+			    
+		    	<!--<AutoCompleteTextView
+		    		android:id = "@+id/new_numbers_text"
+		    		android:layout_width = "fill_parent"
+		    		android:layout_height = "wrap_content"
+		    		android:hint="Recipients"
+		    		android:minLines="2"
+		    		android:gravity="top"
+		    		android:layout_toLeftOf="@+id/new_add_from_contact_imgbutton"
+		    		android:layout_marginTop="4dip"
+		    		android:background="@drawable/auto_complete_bg"
+		    		>
+	    		</AutoCompleteTextView>-->
+
+	    		<RelativeLayout
+	    		    android:id="@+id/autocomplete_wrapper"
+	    		    android:layout_width="fill_parent"
+	    		    android:layout_height="wrap_content"
+	    		    android:layout_marginTop="0dp"
+	    		    android:clickable="true"
+	    		    android:layout_toLeftOf="@+id/new_add_from_contact_imgbutton"
+	    		    android:background="@drawable/textfield_default" >
+	    		    
+	    		    <LinearLayout 
+        				android:id="@+id/layouts_host"
+        				android:layout_toLeftOf="@+id/details_button_layout"
+        				android:layout_height="wrap_content"
+        				android:layout_width="fill_parent"
+        				android:layout_centerVertical="true"
+        				android:minHeight="30dp"
+        				android:orientation="vertical"
+        				>
+        
+        				<LinearLayout
+            				android:id="@+id/edit_text_host"
+            				android:layout_height="wrap_content"
+            				android:layout_width="fill_parent"
+            				android:orientation="horizontal">
+            
+            				<AutoCompleteTextView 
+        						android:background="#00000000"
+        						android:id="@+id/recipients_autocomplete_text"
+        						android:layout_height="30dp"
+        						android:layout_width="wrap_content"
+        						android:paddingLeft="1dp"
+        						android:minWidth="1dp"
+       							android:hint="Recipients"
+       							android:duplicateParentState="true"/>
+            
+       					</LinearLayout>
+       					
+    				</LinearLayout>
+    				
+	    		    
+	    		    <RelativeLayout
+	    		        android:id="@id/details_button_layout"
+	    		        android:layout_width="wrap_content"
+	    		        android:layout_height="match_parent"
+	    		        android:layout_alignParentRight="true"
+	    		        android:layout_centerVertical="true"
+	    		        android:layout_marginBottom="4dp"
+	    		        android:gravity="center_vertical" >
+        				
+	    		        <ImageView 
+	    		            android:src="@drawable/vertical_divider_for_message_header"
+	    		            android:layout_height="wrap_content"
+	    		            android:layout_width="wrap_content"
+	    		            android:layout_alignBaseline="@+id/recipients_detail_image"
+	    		            android:layout_alignParentLeft="true"
+	    		            android:fadingEdge="vertical"
+	    		            android:fadingEdgeLength="2dp"/>
+			        
+			        	<ImageView 
+			            	android:id="@+id/recipients_detail_image"
+			            	android:layout_height="30dp"
+			            	android:layout_width="30dp"
+			            	android:layout_centerVertical="true"
+			            	android:layout_marginLeft="5dp"
+			            	android:paddingLeft="5dp"
+			            	android:background="@drawable/ic_menu_more_states"/>
+			        
+			    	</RelativeLayout>
+	    		    
+	    		</RelativeLayout>
+	    		
+		    		
+		    	<ImageButton 
+		    		android:id = "@id/new_add_from_contact_imgbutton"
+		    		android:layout_width = "45dp"
+		    		android:layout_height = "45dp"
+		    		android:src="@drawable/choose_contact_button_states"
+		    		android:background="@drawable/add_from_contacts_bg_states"
+		    		android:layout_alignParentRight="true"
+		    		android:layout_marginLeft="5dp"
+		    		android:layout_centerVertical="true"
+		    		>
+	    		</ImageButton>		
+	    	</RelativeLayout>
+	    	
+		    <!-- Date and Repeat time button -->
+		    <LinearLayout 
+		        android:layout_height="wrap_content"
+		        android:layout_width="fill_parent"
+		        android:orientation="horizontal">
+		        
+		        <Button 
+			   		android:id = "@+id/new_date_button"
+			   		android:layout_width = "fill_parent"
+			   		android:layout_height = "wrap_content"
+			   		android:layout_weight = "4"
+			   		android:textColor="@color/text_grey"
+			   		android:textSize="18sp"
+			   		android:layout_marginTop="3dp"
+			   		android:background="@drawable/date_time_button_states"
+			   	>
+	    		</Button>
+	    	
+		    	<ImageButton 
+		        	android:id="@+id/repeat_button"
+		        	android:layout_width="58dp"
+		        	android:layout_height="35dp"
+		        	android:layout_marginLeft="7dp"
+		        	android:layout_marginTop="4dp"
+		        	android:src="@drawable/repeat_button_states"
+		        	android:background="@drawable/add_from_contacts_bg_states"
+		        	android:layout_weight="1"
+		        	android:text="Rep"/>
+		        
+		    </LinearLayout>
+		    
+	    	
+	     	<!-- message edit text -->
+	     	<!-- message top layout -->
+			<RelativeLayout 
+		     	android:id="@+id/message_top_layout"    	
+    			android:layout_width = "wrap_content"
+		    	android:layout_height = "wrap_content"
+		    	android:background="@drawable/message_header_bg"
+		    	android:layout_marginTop="10dip"
+		    	android:gravity="center_vertical"
+		    	android:paddingRight="10dip"
+		    	>
+	    		
+			    <!-- template button -->
+	    		<ImageButton 
+	    			android:id = "@+id/template_imgbutton"
+	    			android:layout_height = "wrap_content"
+	    			android:layout_width = "wrap_content"
+	    			android:layout_marginTop="4dp"
+	    			android:layout_marginLeft="10dp"
+	    			android:layout_marginRight="10dp"
+	    			android:layout_centerVertical="true"
+	    			android:background="@drawable/template_icon_states"
+	    			>
+    			</ImageButton>
+	    		
+	    		<!-- vertical splitter -->
+				<ImageView 
+					android:id = "@+id/splitter1"
+					android:layout_height = "wrap_content"
+					android:layout_width = "wrap_content"
+					android:layout_toRightOf="@id/template_imgbutton"
+					android:layout_centerVertical="true"
+					android:src="@drawable/vertical_divider_for_message_header"
+					>
+				</ImageView>    
+				    
+	    		<!-- voice button -->
+	    		<ImageButton 
+	    			android:id = "@+id/speech_imgbutton"
+	    			android:layout_height = "wrap_content"
+	    			android:layout_width = "wrap_content"
+	    			android:layout_marginLeft="12dp"
+	    			android:layout_marginRight="12dip"
+	    			android:background="@drawable/voice_icon_states"
+	    			android:layout_centerVertical="true"
+	    			android:layout_toRightOf="@id/splitter1"
+	    			>
+    			</ImageButton>
+    			
+	    		<!-- vertical splitter -->
+				<ImageView 
+					android:layout_height = "wrap_content"
+					android:layout_width = "wrap_content"
+					android:layout_toRightOf="@id/speech_imgbutton"
+					android:layout_centerVertical="true"
+					android:src="@drawable/vertical_divider_for_message_header"
+					>
+				</ImageView>        
+	    		
+	    		<!-- add to template button -->
+	    		<ImageButton 
+	    			android:id = "@+id/add_template_imgbutton"
+	    			android:layout_height = "wrap_content"
+	    			android:layout_width = "wrap_content"
+	    			android:layout_alignParentRight="true"
+	    			android:layout_marginLeft="10dp"
+	    			android:background="@drawable/add_to_template_states"
+	    			android:layout_centerVertical="true"
+	    			>
+    			</ImageButton>
+    			
+	    		<!-- vertical splitter -->
+				<ImageView 
+					android:layout_height = "wrap_content"
+					android:layout_width = "wrap_content"
+					android:layout_toLeftOf="@id/add_template_imgbutton"
+					android:layout_centerVertical="true"
+					android:src="@drawable/vertical_divider_for_message_header"
+					>
+				</ImageView>        
+   			</RelativeLayout>
+    		    
+			<RelativeLayout
+    		    android:layout_height="wrap_content"
+    		    android:layout_width = "fill_parent"
+    		    android:background="@drawable/message_bg"
+    		    >
+				<!-- message edit text -->
+   		    	<EditText
+					android:id = "@+id/new_message_space" 
+		   			android:layout_width="fill_parent" 
+		   			android:layout_height="wrap_content"
+		   			android:inputType="textMultiLine|textCapSentences"
+		   			android:gravity="top"
+		   			android:hint="Type your Message here"
+		   			android:padding="5dp"
+		   			android:capitalize="sentences"
+		   			android:layout_below="@id/message_top_layout"
+		   			android:minLines="4"
+		   			android:background="@drawable/message_bg"
+		   			>
+	   			</EditText>
+	   			
+	   			<!-- char count text -->    
+	    		<TextView
+	   				android:id = "@+id/new_char_count_text"
+	   				android:layout_height = "wrap_content"
+	   				android:layout_width = "wrap_content"
+	   				android:text = "0"
+	   				android:textSize="20sp"
+	   				android:textStyle="bold"
+	   				android:textColor="@color/char_count_grey"
+	   				android:paddingBottom="5dp"
+	   				android:paddingRight="5dp"
+	   				android:layout_alignParentRight="true"
+	   				android:layout_alignParentBottom="true"
+	   				>
+   				</TextView>
+	    	</RelativeLayout>
+	   
+   		    
+   		    <!-- smiley -->
+			<LinearLayout 
+				android:id = "@+id/smiley_layout"
+				android:orientation = "vertical"
+				android:layout_height= "120dp"
+				android:layout_width = "fill_parent"
+				android:background="@drawable/emoticons_bg"
+				android:layout_marginBottom="10dp"
+				>
+				<GridView 
+		    		android:id = "@+id/smileysGrid"
+		    		android:layout_height = "wrap_content"
+		    		android:layout_width = "fill_parent"
+		    		android:columnWidth="35dp"
+		   	 		android:numColumns="auto_fit"
+		    		android:verticalSpacing="3dp"
+		    		android:horizontalSpacing="10dp"
+		    		android:stretchMode="columnWidth"
+		    		android:gravity="center"
+		    		>
+	    		</GridView>
+			</LinearLayout>       
+   		</LinearLayout>
+    </ScrollView>   
+</RelativeLayout>

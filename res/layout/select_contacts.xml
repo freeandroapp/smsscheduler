@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height = "fill_parent"
+    android:layout_width = "fill_parent"
+    android:background="@color/white"
+    >
+    
+	<TabHost 
+	    android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	android:id="@+id/tabHost"
+    	android:layout_above="@+id/contacts_tabs_buttons_layout"
+    	>
+    	<RelativeLayout 
+        	android:layout_height = "fill_parent"
+    		android:layout_width = "fill_parent"
+    		>
+    		<TabWidget
+    			android:id="@android:id/tabs"
+    			android:layout_width="fill_parent"
+    			android:layout_height="wrap_content"
+    			android:tabStripEnabled="false"
+    			>
+   			</TabWidget>
+   			
+   		    <LinearLayout
+   		        android:id="@+id/seprator" 
+   		     	android:layout_width="fill_parent"
+   		     	android:layout_height="2dip"
+   		     	android:background="@color/text_grey"   
+   		        android:layout_below="@android:id/tabs"
+   		        >
+   		    </LinearLayout>
+    
+	    	<FrameLayout
+	    		android:id="@android:id/tabcontent"
+	    		android:layout_width="fill_parent"
+	    		android:layout_height="fill_parent"
+	    		android:layout_below="@id/seprator"
+	    		>
+	     
+	    	    <!-- contacts tab -->
+	    	    <LinearLayout 
+	    	        android:id="@+id/contacts_tab"
+	    	        android:orientation="vertical"
+	    	        android:layout_height="match_parent"
+	    	        android:layout_width="match_parent">
+	    	        
+	    	        <RelativeLayout 
+	    	            android:layout_height="wrap_content"
+	    	            android:layout_width="fill_parent"
+	    	            android:background="@drawable/textfield_default">
+	    	            
+	    	            <EditText 
+	    	            	android:id="@+id/filter_text"
+	    	            	android:background="#00000000"
+	    	            	android:layout_width="match_parent"
+	    	            	android:layout_height="wrap_content"
+	    	            	android:singleLine="true"
+	    	            	android:layout_marginTop="3dp"
+	    	            	android:layout_toLeftOf="@+id/vertical_splitter"
+	    	            	android:hint="Filter"/>
+	    	            
+	    	            <ImageView 
+	    	                android:id="@id/vertical_splitter"
+	    	                android:layout_height="30dp"
+	    	                android:layout_marginRight="6dp"
+	    	                android:layout_width="wrap_content"
+	    	                android:background="@drawable/list_divider_holo_dark"
+	    	                android:layout_toLeftOf="@+id/clear_filter_button"/>
+	    	            
+	    	            <ImageView 
+	    	                android:id="@id/clear_filter_button"
+	    	                android:layout_height="18dp"
+	    	                android:layout_width="18dp"
+	    	                android:layout_marginTop="5dp"
+	    	                android:padding="5dp"
+	    	                android:background="@drawable/cross_sign"
+	    	                android:layout_alignParentRight="true"/>
+	    	            
+	    	        </RelativeLayout>
+	    	        
+	    	        
+	    	        
+	    	        <ListView
+	     		    	android:id = "@+id/contacts_tabs_native_contacts_list"
+	     		    	android:layout_width="fill_parent"
+	     		    	android:layout_height="fill_parent"
+	     		    	android:cacheColorHint="@color/transparent"
+	     				android:divider="@drawable/list_divider"
+	     				android:fastScrollEnabled="true"
+	     		    >
+     		    	</ListView>
+	    	        
+	    	    </LinearLayout>
+		     	
+		     	
+		     	<!-- group tab -->    
+		     	<LinearLayout
+		     	    android:id = "@+id/group_tabs"
+		    		android:layout_width="match_parent"
+		    		android:layout_height="match_parent"
+		    		android:orientation="vertical" 
+		    		>
+					
+		     	    <TabHost 
+		     	        android:id="@android:id/tabhost" 
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="fill_parent"
+	                    >
+	                    <LinearLayout 
+	                        android:layout_width="fill_parent" 
+	                        android:layout_height="fill_parent"
+	                        android:orientation="vertical"
+	                        >
+	                        
+	                        <TabWidget 
+	                            android:id="@android:id/tabs"
+	                            android:layout_width="fill_parent" 
+	                            android:layout_height="wrap_content"
+	                            android:layout_weight="0"
+	                            android:gravity="center_vertical"
+	                            android:layout_gravity="center"
+	                            >
+                            </TabWidget>
+	                        
+	                        <ImageView 
+									android:id = "@+id/list_divider"
+									android:layout_height = "1dp"
+									android:layout_width = "fill_parent"
+									android:src="@drawable/list_divider"
+							/>
+	                            
+	                        <FrameLayout 
+	                            android:id="@android:id/tabcontent"
+	                            android:layout_width="fill_parent" 
+	                            android:layout_height="wrap_content"
+	                            android:layout_weight="1"
+	                            >
+	                            
+	                            
+	                            
+	                            <ExpandableListView 
+        							android:id = "@+id/native_list"
+        							android:layout_height = "fill_parent"
+       								android:layout_width = "fill_parent"
+       								android:cacheColorHint="@color/transparent"
+									android:groupIndicator="@drawable/expander_group"
+									android:childDivider="@drawable/list_divider"
+									>
+    							</ExpandableListView>
+	    						
+	                           	<LinearLayout 
+	                                android:id = "@+id/private_list_parent_layout"
+	                                android:layout_height = "fill_parent"
+	                                android:layout_width = "fill_parent"
+	                                >
+	                                
+	                           	    <LinearLayout 
+	                                	android:id = "@+id/list_layout"
+	                               		android:layout_height = "wrap_content"
+	                                	android:layout_width = "fill_parent"
+	                                	>
+	                                	<ExpandableListView 
+        									android:id = "@+id/private_list"
+        									android:layout_height = "fill_parent"
+       										android:layout_width = "fill_parent"
+       										android:cacheColorHint="@color/transparent"
+											android:groupIndicator="@drawable/expander_group"
+											android:childDivider="@drawable/list_divider"
+											>
+    									</ExpandableListView>
+	                            	</LinearLayout>
+	                            
+	                            	<LinearLayout 
+	                                	android:id = "@+id/blank_layout"
+	                                	android:layout_height = "fill_parent"
+	                                	android:layout_width = "fill_parent"
+	                                	android:orientation="vertical"
+	   									android:layout_gravity="center"
+	    								android:gravity="center">
+        
+        								<TextView 
+        									android:text = "@string/private_groups_blank_text_heading"
+        									android:layout_height = "wrap_content"
+        									android:layout_width = "wrap_content"
+        									android:gravity="center_vertical"
+        									android:layout_margin = "10dp"
+        									android:textSize="18sp"
+       										android:textColor="@color/black"
+       									>
+     									</TextView>
+    									<Button 
+        									android:id = "@+id/blank_list_add_button"
+        									android:layout_height = "wrap_content"
+        									android:layout_width = "wrap_content"
+        									android:text = ""
+        									android:background="@drawable/add_a_group_button_states"
+       									>
+     									</Button>
+     									
+    									<TextView 
+    									    android:layout_height="wrap_content"
+    									    android:layout_width="fill_parent"
+    									    android:layout_marginLeft="10dp"
+    									    android:layout_marginRight="10dp"
+    									    android:layout_marginTop="5dp"
+    									    android:gravity="center_horizontal"
+    									    android:text="@string/private_groups_blank_text_content"
+    									    android:textSize="14sp"
+    									    android:textColor="@color/text_grey"/>
+	                                
+	                            	</LinearLayout>
+	                           	
+	                           	</LinearLayout>
+	                                
+	                                
+	                        </FrameLayout>
+	                    </LinearLayout>               
+	                </TabHost>          
+				</LinearLayout>
+				
+		     	<!-- Recents Tab -->
+		     	<LinearLayout 
+		     	    android:id = "@+id/contacts_tabs_recents_layout"
+		     	    android:layout_height="fill_parent"
+		     	    android:layout_width ="fill_parent"
+		     	    >
+		     	    
+		     	    <LinearLayout 
+		     	        android:id="@+id/contacts_tabs_recents_blank_layout"
+		     	        android:layout_height = "fill_parent"
+		     	        android:layout_width = "fill_parent"
+		     	        android:orientation="vertical"
+		     	        android:gravity="center"
+		     	        android:cacheColorHint="@color/transparent">
+		     	        
+		     	        <TextView
+		     	            android:layout_height = "wrap_content"
+		     	            android:layout_width = "wrap_content"
+		     	            android:layout_gravity="center"
+		     	            android:text = "@string/recents_blank_text_heading"
+		     	            android:textSize="18sp"
+		     	            android:textColor="@color/black"/>
+		     	        
+		     	        <TextView
+		     	            android:layout_height = "wrap_content"
+		     	            android:layout_width = "wrap_content"
+		     	            android:layout_gravity="center_horizontal"
+		     	            android:gravity="center_horizontal"
+		     	            android:text = "@string/recents_blank_text_content"
+		     	            android:layout_marginTop="2dp"
+		     	            android:layout_marginLeft="15dp"
+		     	            android:layout_marginRight="15dp"
+		     	            android:textSize="14sp"
+		     	            android:textColor="@color/grey"/>
+		     	        
+		     	    </LinearLayout>
+		     	    
+		     	    <LinearLayout 
+		     	        android:id="@+id/contacts_tabs_recents_list_layout"
+		     	        android:layout_height = "fill_parent"
+		     	        android:layout_width = "fill_parent"
+		     	        android:cacheColorHint="@color/transparent">
+		     	        
+		     	        <ListView
+	     		    		android:id = "@+id/contacts_tabs_recents_list"
+	     		    		android:layout_height = "wrap_content"
+	     		    		android:layout_width = "fill_parent"
+							android:cacheColorHint="@color/transparent"
+							android:divider="@drawable/list_divider"
+        				>
+	     				</ListView>
+		     	        
+		     	    </LinearLayout>
+		     	    
+		     	</LinearLayout>
+		     	
+     	  	</FrameLayout>
+	    </RelativeLayout>
+	</TabHost>
+	
+	<!-- footer  -->    
+	<LinearLayout
+	    android:id = "@id/contacts_tabs_buttons_layout"
+	    android:layout_height = "wrap_content"
+	    android:layout_width = "fill_parent"
+	    android:orientation="horizontal"
+	    android:layout_alignParentBottom="true"
+	    android:background="@drawable/footer_bg"
+	    android:gravity="center"
+	    >
+	    
+	    <Button
+	        android:id = "@+id/contacts_tab_done_button"
+	        android:layout_width = "0dip"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:layout_margin = "5dp"
+	        android:background="@drawable/done_footer_states"
+	        >
+    	</Button>
+	    
+	    <Button
+	        android:id = "@+id/contacts_tab_cancel_button"
+	        android:layout_width = "0dip"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:layout_marginTop = "5dp"
+	        android:layout_marginBottom="5dp"
+	        android:layout_marginRight="5dp"
+	        android:background="@drawable/cancel_footer_states"
+	        >
+    	</Button>
+	</LinearLayout>
+</RelativeLayout>

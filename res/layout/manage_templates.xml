@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/white"
+    >
+
+    <!-- header -->
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/header_bg" 
+        android:gravity="center_vertical"
+        >
+        <TextView
+           android:id="@+id/manage_template_layout_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:text="Manage Templates"
+            android:textColor="@color/white"
+            android:textSize="20sp" 
+        	android:textStyle="bold"
+            >
+        </TextView>
+
+        <ImageView
+            android:id="@+id/splitter1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/new_template_image_button"
+            android:src="@drawable/vertical_seprator" 
+            >
+        </ImageView>
+
+        <ImageView
+            android:id="@id/new_template_image_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingRight="10dp"
+            android:paddingLeft="5dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/add_to_template_states" 
+            >
+    	</ImageView>
+    </RelativeLayout>
+
+	<!-- Add Template Layout -->
+    <LinearLayout
+        android:id="@+id/new_template_input_space"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone" 
+        >
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="150dp" 
+            >
+            <EditText
+                android:id="@+id/new_template_input_edit_text"
+                android:layout_width="fill_parent"
+                android:layout_height="150dp"
+                android:gravity="top"
+                android:hint="Type your template here"
+                android:minHeight="150dp" 
+                >
+        	</EditText>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" 
+            android:background="@drawable/footer_bg"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            >
+            <Button
+                android:id="@+id/new_template_add_button"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/add_footer_states"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="2.5dip"
+                >
+            </Button>
+
+            <Button
+                android:id="@+id/new_template_cancel_button"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/cancel_footer_states"
+                android:layout_marginLeft="2.5dip"
+                android:layout_marginRight="5dip"
+                >
+            </Button>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout 
+        android:id = "@+id/list_layout"
+        android:layout_height = "fill_parent"
+        android:layout_width="fill_parent">
+        
+        <ListView
+        	android:id="@+id/template_manager_list"
+        	android:layout_width="fill_parent"
+        	android:layout_height="fill_parent" 
+        	android:cacheColorHint="@color/transparent"
+        	android:divider="@drawable/list_divider"
+        >
+   		</ListView>
+        
+    </LinearLayout>
+    
+        
+        
+    <LinearLayout 
+        android:id = "@+id/blank_layout"
+        android:layout_height = "fill_parent"
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+	   	android:layout_gravity="center"
+	    android:gravity="center">
+        
+		<TextView 
+        	android:text = "No Templates"
+        	android:layout_height = "wrap_content"
+        	android:layout_width = "wrap_content"
+        	android:gravity="center_vertical"
+        	android:layout_margin = "10dp"
+        	android:textSize="18sp"
+       		android:textColor="@color/black"
+       	>
+     	</TextView>
+    	<Button 
+        	android:id = "@+id/blank_list_add_template_button"
+        	android:layout_height = "wrap_content"
+        	android:layout_width = "wrap_content"
+        	android:text = ""
+        	android:background="@drawable/add_template_button_states"
+       	>
+     	</Button>
+        
+    </LinearLayout>
+</LinearLayout>

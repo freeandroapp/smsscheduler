@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.freeandroapp.smsscheduler"
+    android:installLocation="preferExternal"
+    android:versionCode="1"
+    android:versionName="1.0">
+    
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="16"/>
+	
+	<uses-permission android:name="android.permission.SEND_SMS"/>
+	<uses-permission android:name="android.permission.WRITE_SMS"/>
+	<uses-permission android:name="android.permission.READ_SMS"/>
+	<uses-permission android:name="android.permission.READ_CONTACTS"/>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+	<uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.VOICE_RECOGNITION"/>
+    <uses-permission android:name="android.permission.MIC"/>
+     <uses-permission android:name="android.permission.WAKE_LOCK"/>
+ <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.VIBRATE"/> 
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/> 
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> 
+	<uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+
+ 	<uses-feature android:name="android.hardware.microphone" />
+ 	<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+	
+
+    <application 
+        android:debuggable="false"
+        android:name=".SmsSchedulerApplication" 
+        android:icon="@drawable/icon" 
+        android:label="SMS Scheduler" 
+        android:theme="@android:style/Theme.NoTitleBar">
+
+        <!--  activities -->
+
+        <activity android:name = "com.freeandroapp.smsscheduler.activities.SplashActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation">
+                <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name = "com.freeandroapp.smsscheduler.activities.Home" android:windowSoftInputMode="adjustPan" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation"/>
+        
+        <activity android:name = "com.freeandroapp.smsscheduler.activities.ScheduleSms.ScheduleNewSms" android:windowSoftInputMode="adjustPan" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name = "com.freeandroapp.smsscheduler.activities.Template.ManageTemplates" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name = "com.freeandroapp.smsscheduler.Contact.ContactsList" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name = ".Contact.SelectContacts" android:windowSoftInputMode="adjustPan" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name = ".activities.Group.ManageGroups" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name = ".activities.Group.EditGroup" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name = ".activities.ScheduleSms.EditScheduledSms" android:windowSoftInputMode="adjustPan" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" />
+        
+        
+       	<!--  receivers -->
+        <receiver android:name ="com.freeandroapp.smsscheduler.receivers.SMSHandleReceiver" android:enabled="true" />
+		<receiver android:name ="com.freeandroapp.smsscheduler.receivers.SentReceiver" android:enabled="true" />
+		<receiver android:name ="com.freeandroapp.smsscheduler.receivers.DeliveryReceiver" android:enabled="true" />
+		<receiver android:name =".receivers.BootCompleteReceiver" android:process=":remote" android:enabled="true" android:exported="false"> 
+        	<intent-filter>
+            	<action android:name="android.intent.action.BOOT_COMPLETED" />
+				<category android:name="android.intent.category.HOME" />
+        	</intent-filter> 
+		</receiver>
+		
+		
+		<activity android:name="com.airpush.android.PushAds"
+		android:configChanges="orientation|keyboardHidden"/>
+		<receiver android:name="com.airpush.android.UserDetailsReceiver"/>
+		<receiver android:name="com.airpush.android.MessageReceiver" />
+		<receiver android:name="com.airpush.android.DeliveryReceiver" />
+		<receiver android:name="com.freeandroapp.smsscheduler.activities.BootReceiver">
+		<intent-filter>
+		<action android:name="android.intent.action.BOOT_COMPLETED" />
+		<category android:name="android.intent.category.HOME" />
+		</intent-filter>
+		</receiver>
+		<service android:name="com.airpush.android.PushService">
+		<intent-filter>
+		<action android:name="com.airpush.android.PushServiceStart100248"/>
+		</intent-filter>
+		</service>
+		
+    </application>
+</manifest>

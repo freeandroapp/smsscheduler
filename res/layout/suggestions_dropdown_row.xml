@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:clickable="false">
+    
+<LinearLayout
+    android:id="@+id/primary_number_space"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:paddingLeft="10dip"
+    android:paddingTop="5dip"
+    android:paddingBottom="5dip"
+    android:background="@drawable/list_item_states"
+    >
+
+    <TextView
+        android:id="@+id/row_name_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp" 
+        android:singleLine="true"
+        android:ellipsize="end"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/row_number_label"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textColor="@color/text_grey"
+        >
+    </TextView>
+</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/extra_number_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:clickable="false"/>
+    
+
+</LinearLayout>
